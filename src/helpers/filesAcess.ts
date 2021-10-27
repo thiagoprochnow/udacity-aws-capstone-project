@@ -125,7 +125,7 @@ export class FilesAccess {
     const attachmentUrl = await this.s3.getSignedUrl("putObject", {
       Bucket: this.bucketName,
       Key: imageId,
-      Expires: this.urlExpiration,
+      Expires: parseInt(this.urlExpiration),
     });
 
     this.docClient.update(
